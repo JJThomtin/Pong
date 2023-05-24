@@ -5,9 +5,9 @@ bool Game::Init() {
 		return false;
 	}
 
-	//Creates window with the size of 1270x800 pixels with the window title of PONG
-	window = SDL_CreateWindow("PONG", 1270, 800, 0);
-
+	//Creates window with the size of 640x480 pixels with the window title of PONG
+	window = SDL_CreateWindow("PONG", 640, 480, 0);
+	SDL_SetWindowPosition(window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
 	//Check if window opened
 	if (!window) {
 		return false;
@@ -22,8 +22,12 @@ bool Game::Init() {
 		return false;
 	}
 
-	return true;
+	//Initialization of paddles
 
+	leftPaddle = new Paddle(0);
+	rightPaddle = new Paddle(1);
+
+	return true;
 }
 
 void Game::GameLoop() {
@@ -36,6 +40,25 @@ void Game::GameLoop() {
 
 void Game::HandleEvents() {
 
+	//If the current event of the game is event_quit, the program will close the progrom
+	//I.e(User clicks the close button on the window)
+	SDL_Event event;
+
+	while (SDL_PollEvent(&event)) {
+		if (event.type == SDL_EVENT_QUIT) {
+			isRunning = false;
+		}
+	}
+
+	//SDL_GetKeyboardState is a pointer to an internal SDL array which checks for keyboard input
+	const Uint8* keystates = SDL_GetKeyboardState(NULL);
+
+	//checks for escape input and if pressed(condition true) isRunning is false
+	if (keystates[SDL_SCANCODE_ESCAPE]) {
+		isRunning = false;
+	}
+
+
 }
 
 void Game::Update() {
@@ -47,6 +70,11 @@ void Game::Draw() {
 	SDL_SetRenderDrawColor(renderer, 40, 40, 40, 255);
 	//Clear the current rendering target with the drawing color.
 	SDL_RenderClear(renderer);
+
+	//Draw Paddles
+	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+	SDL_RenderFillRect(renderer, leftPaddle->GetRect());
+	SDL_RenderFillRect(renderer, rightPaddle->GetRect());
 	//Update the screen with any rendering performed since the previous call
 	SDL_RenderPresent(renderer);
 

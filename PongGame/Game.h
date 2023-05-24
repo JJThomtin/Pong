@@ -1,6 +1,6 @@
 #pragma once
 
-#include <SDL3/SDL.h>
+#include "Paddle.h"
 class Game {
 public:
 	//The INIT function initializes the data structures required by the rest of
@@ -23,5 +23,7 @@ private:
 
 	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
+
+	class Paddle* leftPaddle,  *rightPaddle;
 };
 
