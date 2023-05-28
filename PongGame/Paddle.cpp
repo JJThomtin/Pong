@@ -28,8 +28,12 @@ Paddle::Paddle(int i) {
 	
 }
 void Paddle::Update() {
-	rect.x = x;
+	y = y + speed * dir;
 	rect.y = y;
+}
+
+void Paddle::SetDir(int d){
+	dir = d;
 }
 
 SDL_FRect* Paddle::GetRect() {

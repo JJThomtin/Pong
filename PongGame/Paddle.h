@@ -7,6 +7,7 @@ class Paddle
 public:
 	Paddle(int i);
 	void Update();
+	void SetDir(int d);
 
 	SDL_FRect* GetRect();
 private:

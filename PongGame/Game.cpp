@@ -58,11 +58,35 @@ void Game::HandleEvents() {
 		isRunning = false;
 	}
 
+	//Left Paddle Movement
+	//Stops left paddle when no button is pressed
+	leftPaddle->SetDir(0);
 
+	//Press W for the left paddle to go up
+	if (keystates[SDL_SCANCODE_W]){
+		leftPaddle->SetDir(-1);
+	}
+	//Press S for the left paddle to go down
+	if (keystates[SDL_SCANCODE_S]) {
+		leftPaddle->SetDir(1);
+	}
+	//Stops right paddle when no button is pressed
+	rightPaddle->SetDir(0);
+
+
+	//Press Up Arrow for the right paddle to go up
+	if (keystates[SDL_SCANCODE_UP]) {
+		rightPaddle->SetDir(-1);
+	}
+	//Press Down Arrow for the right paddle to go down
+	if (keystates[SDL_SCANCODE_DOWN]) {
+		rightPaddle->SetDir(1);
+	}
 }
 
 void Game::Update() {
-
+	leftPaddle->Update();
+	rightPaddle->Update();
 }
 
 void Game::Draw() {
