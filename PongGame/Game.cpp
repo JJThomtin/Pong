@@ -87,6 +87,7 @@ void Game::HandleEvents() {
 void Game::Update() {
 	leftPaddle->Update();
 	rightPaddle->Update();
+
 }
 
 void Game::Draw() {

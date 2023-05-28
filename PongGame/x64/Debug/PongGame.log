@@ -1,8 +1,5 @@
-﻿  Game.cpp
-  Paddle.cpp
-E:\Programming\20 Games Challenge\Pong\Pong\PongGame\Paddle.cpp(17,7): error C2065: 'SCREEN_WIDTH': undeclared identifier
-E:\Programming\20 Games Challenge\Pong\Pong\PongGame\Paddle.cpp(21,7): error C2065: 'SCREEN_HEIGHT': undeclared identifier
+﻿  Paddle.cpp
+E:\Programming\20 Games Challenge\Pong\Pong\PongGame\Paddle.cpp(21,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 E:\Programming\20 Games Challenge\Pong\Pong\PongGame\Paddle.cpp(25,11): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 E:\Programming\20 Games Challenge\Pong\Pong\PongGame\Paddle.cpp(26,11): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Pong.cpp
-  Generating Code...
+  PongGame.vcxproj -> E:\Programming\20 Games Challenge\Pong\Pong\PongGame\x64\Debug\PongGame.exe

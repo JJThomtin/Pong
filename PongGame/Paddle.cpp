@@ -14,11 +14,11 @@ Paddle::Paddle(int i) {
 	//starting position of player 2 paddle
 	else if (id == 1) {
 		//positions it at the right side
-		x = SCREEN_WIDTH + 300.f;
+		x = 640 + 300.f;
 	}
 
 	//positions it at the middle of the screen height
-	y = (SCREEN_HEIGHT/2) + (height/2);
+	y = (480/2) + (height/2);
 
 	rect.x = x;
 	rect.y = y;
@@ -29,7 +29,16 @@ Paddle::Paddle(int i) {
 }
 void Paddle::Update() {
 	y = y + speed * dir;
+
+	// Keep y inbounds
+	if (y < 0) {
+		y = 0;
+	}
+	else if (y > 620) {
+		y = 620;
+	}
 	rect.y = y;
+
 }
 
 void Paddle::SetDir(int d){
