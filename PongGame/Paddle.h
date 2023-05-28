@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Utils.h"
+#include <SDL3/SDL.h>
 
 class Paddle
 {
