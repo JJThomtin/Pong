@@ -1,5 +1,7 @@
-﻿  Paddle.cpp
-E:\Programming\20 Games Challenge\Pong\Pong\PongGame\Paddle.cpp(21,14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\Programming\20 Games Challenge\Pong\Pong\PongGame\Paddle.cpp(25,11): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\Programming\20 Games Challenge\Pong\Pong\PongGame\Paddle.cpp(26,11): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+﻿  Ball.cpp
+E:\Programming\20 Games Challenge\Pong\Pong\PongGame\Ball.cpp(6,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\Programming\20 Games Challenge\Pong\Pong\PongGame\Ball.cpp(12,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\Programming\20 Games Challenge\Pong\Pong\PongGame\Ball.cpp(13,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\Programming\20 Games Challenge\Pong\Pong\PongGame\Ball.cpp(14,27): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\Programming\20 Games Challenge\Pong\Pong\PongGame\Ball.cpp(15,27): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   PongGame.vcxproj -> E:\Programming\20 Games Challenge\Pong\Pong\PongGame\x64\Debug\PongGame.exe

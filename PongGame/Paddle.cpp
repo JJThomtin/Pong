@@ -2,49 +2,49 @@
 
 Paddle::Paddle(int i) {
 	//Checks player 1 or 2 paddle
-	id = i;
+	paddleID = i;
 	//Speed of paddle
-	speed = 20.f;
+	paddleSpeed = 20.f;
 
 	//starting position of player 1 paddle
-	if (id == 0) {
-		x = 0;
+	if (paddleID == 0) {
+		paddleXPos = 0;
 		
 	}
 	//starting position of player 2 paddle
-	else if (id == 1) {
+	else if (paddleID == 1) {
 		//positions it at the right side
-		x = 640 + 300.f;
+		paddleXPos = 640 + 300.f;
 	}
 
 	//positions it at the middle of the screen height
-	y = (480/2) + (height/2);
+	paddleYPos = (480/2) + (paddleHeight/2);
 
-	rect.x = x;
-	rect.y = y;
-	rect.w = width;
-	rect.h = height;
+	paddleShape.x = paddleXPos;
+	paddleShape.y = paddleYPos;
+	paddleShape.w = paddleWidth;
+	paddleShape.h = paddleHeight;
 
 	
 }
-void Paddle::Update() {
-	y = y + speed * dir;
+void Paddle::PaddleUpdate() {
+	paddleYPos = paddleYPos + paddleSpeed * paddleDirection;
 
 	// Keep y inbounds
-	if (y < 0) {
-		y = 0;
+	if (paddleYPos < 0) {
+		paddleYPos = 0;
 	}
-	else if (y > 620) {
-		y = 620;
+	else if (paddleYPos > 620) {
+		paddleYPos = 620;
 	}
-	rect.y = y;
+	paddleShape.y = paddleYPos;
 
 }
 
-void Paddle::SetDir(int d){
-	dir = d;
+void Paddle::PaddleSetDir(int d){
+	paddleDirection = d;
 }
 
-SDL_FRect* Paddle::GetRect() {
-	return &rect;
+SDL_FRect* Paddle::PaddleGetRect() {
+	return &paddleShape;
 }

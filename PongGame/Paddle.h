@@ -6,17 +6,17 @@ class Paddle
 {
 public:
 	Paddle(int i);
-	void Update();
-	void SetDir(int d);
+	void PaddleUpdate();
+	void PaddleSetDir(int d);
 
-	SDL_FRect* GetRect();
+	SDL_FRect* PaddleGetRect();
 private:
-	int id;
-	int dir = 0;
-	int width = 20;
-	int height = 100;
-	float x = 0, y, speed;
-	SDL_FRect rect;
+	int paddleID;
+	int paddleDirection = 0;
+	int paddleWidth = 20;
+	int paddleHeight = 100;
+	float paddleXPos = 0, paddleYPos, paddleSpeed;
+	SDL_FRect paddleShape;
 
 };
 

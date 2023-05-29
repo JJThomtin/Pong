@@ -27,7 +27,11 @@ bool Game::Init() {
 	leftPaddle = new Paddle(0);
 	rightPaddle = new Paddle(1);
 
+	//Initialization of Ball
+
+	ball = new Ball;
 	return true;
+
 }
 
 void Game::GameLoop() {
@@ -60,34 +64,34 @@ void Game::HandleEvents() {
 
 	//Left Paddle Movement
 	//Stops left paddle when no button is pressed
-	leftPaddle->SetDir(0);
+	leftPaddle->PaddleSetDir(0);
 
 	//Press W for the left paddle to go up
 	if (keystates[SDL_SCANCODE_W]){
-		leftPaddle->SetDir(-1);
+		leftPaddle->PaddleSetDir(-1);
 	}
 	//Press S for the left paddle to go down
 	if (keystates[SDL_SCANCODE_S]) {
-		leftPaddle->SetDir(1);
+		leftPaddle->PaddleSetDir(1);
 	}
 	//Stops right paddle when no button is pressed
-	rightPaddle->SetDir(0);
+	rightPaddle->PaddleSetDir(0);
 
 
 	//Press Up Arrow for the right paddle to go up
 	if (keystates[SDL_SCANCODE_UP]) {
-		rightPaddle->SetDir(-1);
+		rightPaddle->PaddleSetDir(-1);
 	}
 	//Press Down Arrow for the right paddle to go down
 	if (keystates[SDL_SCANCODE_DOWN]) {
-		rightPaddle->SetDir(1);
+		rightPaddle->PaddleSetDir(1);
 	}
 }
 
 void Game::Update() {
-	leftPaddle->Update();
-	rightPaddle->Update();
-
+	leftPaddle->PaddleUpdate();
+	rightPaddle->PaddleUpdate();
+	ball->BallUpdate();
 }
 
 void Game::Draw() {
@@ -98,8 +102,11 @@ void Game::Draw() {
 
 	//Draw Paddles
 	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-	SDL_RenderFillRect(renderer, leftPaddle->GetRect());
-	SDL_RenderFillRect(renderer, rightPaddle->GetRect());
+	SDL_RenderFillRect(renderer, leftPaddle->PaddleGetRect());
+	SDL_RenderFillRect(renderer, rightPaddle->PaddleGetRect());
+
+	//Draw ball
+	SDL_RenderFillRect(renderer, ball->BallGetRect());
 	//Update the screen with any rendering performed since the previous call
 	SDL_RenderPresent(renderer);
 
