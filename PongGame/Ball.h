@@ -1,6 +1,6 @@
 #pragma once
 
-#include <SDL3/SDL.h>
+#include "Paddle.h"
 
 struct Velecity {
 
@@ -12,6 +12,23 @@ public:
 
 	void BallUpdate();
 	void BallSetVelocity(float xDirection, float yDirection);
+	void BallHitPaddle();
+	bool HasCollided(Paddle* paddle);
+	float getXPos() {
+		return xPos;
+	}
+
+	float getYPos() {
+		return yPos;
+	}
+
+	float getXDirection() {
+		return xDirection;
+	}
+
+	float getYDirection() {
+		return yDirection;
+	}
 
 	SDL_FRect* BallGetRect();
 private:

@@ -10,6 +10,18 @@ public:
 	void PaddleSetDir(int d);
 
 	SDL_FRect* PaddleGetRect();
+
+	float getPaddleXPos() {
+		return paddleXPos;
+	}
+
+	float getPaddleYPos() {
+		return paddleYPos;
+	}
+
+	int getPaddleID() {
+		return paddleID;
+	}
 private:
 	int paddleID;
 	int paddleDirection = 0;

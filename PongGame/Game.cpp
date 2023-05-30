@@ -1,5 +1,5 @@
 #include "Game.h"
-
+#include <iostream>
 bool Game::Init() {
 	if (SDL_Init(SDL_INIT_VIDEO) != 0) {
 		return false;
@@ -92,6 +92,18 @@ void Game::Update() {
 	leftPaddle->PaddleUpdate();
 	rightPaddle->PaddleUpdate();
 	ball->BallUpdate();
+
+	//Ball hits left paddle 
+	if (ball->HasCollided(leftPaddle)) {
+		std::cout << "LEFT" << std::endl;
+		//ball->BallHitPaddle();
+	}
+	//Ball hits left paddle 
+	if (ball->HasCollided(rightPaddle)) {
+		std::cout << "RIGHT" << std::endl;
+		//ball->BallHitPaddle();
+	}
+
 }
 
 void Game::Draw() {

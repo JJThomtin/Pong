@@ -1,12 +1,12 @@
 #include "Ball.h"
-
+#include <iostream>
 Ball::Ball() {
 	//Ball speed
 	ballSpeed = 2.f;
 	xPos = (940 / 2) - (ballSize / 2);
 	yPos = 330;
 
-	xDirection = 1;
+	xDirection = -1;
 	yDirection = 1;
 
 	ballShapeAndLocation.x = (int)xPos;
@@ -29,7 +29,7 @@ void Ball::BallUpdate() {
 		yPos = 720 - ballSize;
 		yDirection *= -1;
 	}
-
+	
 	ballShapeAndLocation.x = xPos;
 	ballShapeAndLocation.y = yPos;
 }
@@ -38,6 +38,20 @@ void Ball::BallSetVelocity(float xDirection, float yDirection) {
 
 }
 
+void Ball::BallHitPaddle() {
+	xDirection *= -1;
+}
+bool Ball::HasCollided(Paddle* paddle) {
+	if (xPos + ballSize >= paddle->getPaddleXPos() && //Right ball intersect left paddle
+		xPos <= paddle->getPaddleXPos() + paddle->PaddleGetRect()->w && //Right ball intersect right paddle
+		yPos + ballSize >= paddle->getPaddleYPos() &&	//Bottom ball intersect top paddle
+		yPos <= paddle->getPaddleYPos() + paddle->PaddleGetRect()->h) //Top ball intersect bottom baddle
+	{
+		xDirection *= -1;
+		return true;
+	}
+	return false;
+}
 SDL_FRect* Ball::BallGetRect() {
 	return &ballShapeAndLocation;
 }
