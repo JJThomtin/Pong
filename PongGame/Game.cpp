@@ -5,8 +5,8 @@ bool Game::Init() {
 		return false;
 	}
 
-	//Creates window with the size of 640x480 pixels with the window title of PONG
-	window = SDL_CreateWindow("PONG", 640, 480, 0);
+	//Creates window with the size of 768x575 pixels with the window title of PONG
+	window = SDL_CreateWindow("PONG", 768, 575, 0);
 	SDL_SetWindowPosition(window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
 	//Check if window opened
 	if (!window) {
