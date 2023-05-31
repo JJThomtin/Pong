@@ -11,9 +11,8 @@ public:
 	Ball();
 
 	void BallUpdate();
-	void BallSetVelocity(float xDirection, float yDirection);
-	void BallHitPaddle();
 	bool HasCollided(Paddle* paddle);
+
 	float getXPos() {
 		return xPos;
 	}

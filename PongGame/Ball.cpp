@@ -34,20 +34,22 @@ void Ball::BallUpdate() {
 	ballShapeAndLocation.y = yPos;
 }
 
-void Ball::BallSetVelocity(float xDirection, float yDirection) {
 
-}
 
-void Ball::BallHitPaddle() {
-	xDirection *= -1;
-}
+
 bool Ball::HasCollided(Paddle* paddle) {
 	if (xPos + ballSize >= paddle->getPaddleXPos() && //Right ball intersect left paddle
 		xPos <= paddle->getPaddleXPos() + paddle->PaddleGetRect()->w && //Right ball intersect right paddle
 		yPos + ballSize >= paddle->getPaddleYPos() &&	//Bottom ball intersect top paddle
 		yPos <= paddle->getPaddleYPos() + paddle->PaddleGetRect()->h) //Top ball intersect bottom baddle
 	{
-		xDirection *= -1;
+		xDirection *= -1.1;
+		if (paddle->getPaddleID() == 0) {
+			xPos = paddle->getPaddleXPos() + paddle->PaddleGetRect()->w;
+		}
+		else if (paddle->getPaddleID() == 1) {
+			xPos = paddle->getPaddleXPos() - ballSize;
+		}
 		return true;
 	}
 	return false;

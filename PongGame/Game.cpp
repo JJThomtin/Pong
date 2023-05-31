@@ -96,12 +96,10 @@ void Game::Update() {
 	//Ball hits left paddle 
 	if (ball->HasCollided(leftPaddle)) {
 		std::cout << "LEFT" << std::endl;
-		//ball->BallHitPaddle();
 	}
 	//Ball hits left paddle 
 	if (ball->HasCollided(rightPaddle)) {
 		std::cout << "RIGHT" << std::endl;
-		//ball->BallHitPaddle();
 	}
 
 }
