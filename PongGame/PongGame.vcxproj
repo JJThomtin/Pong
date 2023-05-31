@@ -150,7 +150,7 @@
     <ClCompile Include="Pong.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\..\..\..\Libraries\C\SDL-main\SDL-main\VisualC\x64\Debug\SDL3.lib" />
+    <Library Include="SDL3.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

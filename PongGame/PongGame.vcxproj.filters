@@ -40,6 +40,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\..\..\..\Libraries\C\SDL-main\SDL-main\VisualC\x64\Debug\SDL3.lib" />
+    <Library Include="SDL3.lib" />
   </ItemGroup>
 </Project>
