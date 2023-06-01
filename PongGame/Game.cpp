@@ -1,12 +1,18 @@
 #include "Game.h"
-#include <iostream>
+using Clock = std::chrono::steady_clock;
+using namespace std::literals;
+auto constexpr dt = 1.0s / 60.;
+using duration = std::chrono::duration<double>;
+using time_point = std::chrono::time_point<Clock, duration>;
+
 bool Game::Init() {
 	if (SDL_Init(SDL_INIT_VIDEO) != 0) {
 		return false;
 	}
 
 	//Creates window with the size of 768x575 pixels with the window title of PONG
-	window = SDL_CreateWindow("PONG", 768, 575, 0);
+	window = SDL_CreateWindow("PONG", 640, 480, 0);
+	SDL_SetWindowSize(window, 640, 480);
 	SDL_SetWindowPosition(window, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
 	//Check if window opened
 	if (!window) {
@@ -35,10 +41,26 @@ bool Game::Init() {
 }
 
 void Game::GameLoop() {
+	time_point t{};
+
+	time_point currentTime = Clock::now();
+	duration accumulator = 0s;
 	while (isRunning) {
-		HandleEvents();
-		Update();
-		Draw();
+		time_point newTime = Clock::now();
+		auto frameTime = newTime - currentTime;
+		if (frameTime > 0.25s)
+			frameTime = 0.25s;
+		currentTime = newTime;
+
+		accumulator += frameTime;
+		while (accumulator >= dt)
+		{
+			HandleEvents();
+			Update();
+			Draw();
+			t += dt;
+			accumulator -= dt;
+		}
 	}
 }
 

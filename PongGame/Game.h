@@ -2,6 +2,9 @@
 
 #include "Paddle.h"
 #include "Ball.h"
+#include <iostream>
+#include <chrono>
+
 class Game {
 public:
 	//The INIT function initializes the data structures required by the rest of
